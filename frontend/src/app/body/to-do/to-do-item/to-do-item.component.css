@@ -1,0 +1,11 @@
+.asd{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+i{
+  margin: 0 0.2rem;
+  padding: 0 0.3rem;
+  cursor: pointer;
+}

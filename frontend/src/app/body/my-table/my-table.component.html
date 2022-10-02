@@ -1,0 +1,118 @@
+<!--<div class="table">-->
+<!--  <app-my-table  *ngFor="let person of _persons | async" [letter]="person.name[0]" [person]="person"> </app-my-table>-->
+<!--</div>-->
+
+<!--<div class="row" *ngFor="let person of _persons">-->
+<!--  <div class="l-row">{{person.name[0]}}</div>-->
+<!--  <div class="row-body">-->
+<!--    <div class="col">-->
+<!--      {{person.name}}-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="table-users">
+  <div class="header">
+    <p>Contacts</p>
+    <input (input)="filterPerson($event)" placeholder="Person filter" type="text">
+  </div>
+
+  <jw-modal id="person-add-modal">
+    <form (ngSubmit)="postPerson()" [formGroup]="form">
+      <h1>Input contact data</h1>
+      <mat-form-field #a appearance="fill">
+        <mat-label>Name</mat-label>
+        <input #personNameInput formControlName="name" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input #personEmailInput formControlName="email" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input #personPhoneInput formControlName="phone" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Birthday</mat-label>
+        <input #personBirthdayInput formControlName="birthday" matInput type="date"/>
+      </mat-form-field>
+      <button
+        (click)="closeModal('person-add-modal');"
+        [disabled]="form.invalid"
+        type="submit"
+      >Add
+      </button>
+    </form>
+  </jw-modal>
+
+  <jw-modal id="person-edit-modal">
+    <form (ngSubmit)="putPerson()" [formGroup]="putForm">
+      <h1>Input contact data</h1>
+      <mat-form-field style="display: none;" appearance="fill">
+        <mat-label>PersonId</mat-label>
+        <input formControlName="personId" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input formControlName="phone" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Kinship</mat-label>
+        <input formControlName="kinship" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Working Place</mat-label>
+        <input formControlName="workingPlace" matInput type="text"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Birthday</mat-label>
+        <input formControlName="birthday" matInput type="date"/>
+      </mat-form-field>
+      <button
+        (click)="closeModal('person-edit-modal');"
+        [disabled]="putForm.invalid"
+        type="submit"
+      >Add
+      </button>
+    </form>
+  </jw-modal>
+
+
+  <table cellspacing="0" class="my-table">
+    <tr>
+      <th></th>
+      <th><a (click)="sortTable('name')">Name</a></th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Birthday</th>
+      <th><a (click)="sortTable('time')">Edition Time</a></th>
+      <th><a><i (click)="openModal('person-add-modal')" class="fa-solid fa-plus"></i></a></th>
+      <th></th>
+    </tr>
+
+    <tr *ngFor="let person of _shownPersons">
+      <td>
+        <div>{{person.name[0].toUpperCase()}}</div>
+      </td>
+      <td>{{person.name}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.phoneNumber}}</td>
+      <td>{{person.birthday | date}}</td>
+      <td>{{person.editionTime | date : 'short'}}</td>
+      <td (click)="openModal('person-edit-modal', person);"><a><i class="fa-solid fa-info"></i></a></td>
+      <td (dblclick)="removePerson(person.personId)"><a><i class="fa-solid fa-trash"></i></a></td>
+    </tr>
+  </table>
+  <div class="footer">
+    <span (click)="changePage(-1)"><</span>
+    <span>{{_pageNumber}}</span>
+    <span (click)="changePage(1)">></span>
+  </div>
+</div>

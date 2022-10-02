@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "O6k/eYiViMFqAeDUt2p+BHkk33ALnQF5fscOgWi1IdQ=",
+  "Source": "CouseProj2",
+  "BasePath": "_content/CouseProj2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CouseProj2\\wwwroot",
+      "Source": "CouseProj2",
+      "ContentRoot": "D:\\OOP_COURSE_PROJ\\backend\\wwwroot\\",
+      "BasePath": "_content/CouseProj2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

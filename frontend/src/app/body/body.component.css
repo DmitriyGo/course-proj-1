@@ -1,0 +1,12 @@
+.contacts{
+  background-color: #3B3B3B;
+  padding: 1rem 3rem;
+  margin-bottom: 2rem;
+}
+.wrapper
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

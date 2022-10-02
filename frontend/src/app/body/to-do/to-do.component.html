@@ -1,0 +1,54 @@
+<div class="example-container">
+  <h2>To do</h2>
+  <div class="example-header">
+    <p>Add new ToDo item</p>
+    <i class="fa-solid fa-plus" (click)="openModal('custom-modal-1')">
+    </i>
+
+  </div>
+
+  <jw-modal id="custom-modal-1">
+    <h1>Input your todo</h1>
+    <input type="text" #todoInput/>
+    <button
+      (click)="closeModal('custom-modal-1');"
+      (click)="postTodo(todoInput.value);"
+
+    >Add</button>
+  </jw-modal>
+  <div
+    #todoList="cdkDropList"
+    (cdkDropListDropped)="drop($event); "
+    [cdkDropListConnectedTo]="[doneList]"
+    [cdkDropListData]="todo"
+    cdkDropList
+    class="example-list">
+    <div *ngFor="let item of todo" cdkDrag class="example-box">{{item.text}}</div>
+  </div>
+</div>
+
+
+<div class="example-container">
+  <h2>Done</h2>
+
+  <div
+    #doneList="cdkDropList"
+    (cdkDropListDropped)="drop($event);"
+    [cdkDropListConnectedTo]="[todoList]"
+    [cdkDropListData]="done"
+    cdkDropList
+
+    class="example-list">
+    <div *ngFor="let item of done"
+         [ngClass]="{'red':this.item.color=='red' , 'green': this.item.color=='#b9eab3'}"
+         cdkDrag class="example-box">
+      <app-to-do-item
+        [item]="item"
+        (onColorChange)="putTodo($event.toDoId, $event)"
+        (onDelete)="deleteItem($event)"
+        (onItemCreated)="setItem(this.item)"
+      >
+      </app-to-do-item>
+    </div>
+  </div>
+</div>

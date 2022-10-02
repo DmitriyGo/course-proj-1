@@ -1,0 +1,12 @@
+app-nav{
+  background-color: #18191D;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+app-body{
+  background-color: #282E33;
+  max-height: 100vh;
+  color: #fff;
+}

@@ -1,0 +1,18 @@
+<nav>
+  <div routerLinkActive="active" routerLink="/contacts"  (click)="addClass(1); sendTitle('Contacts')">
+    <a class="el"><i class="fa-solid fa-users"></i></a>
+    <p>Contacts</p>
+  </div>
+  <div routerLinkActive="active" routerLink="/birthdays"  (click)="addClass(2);sendTitle('Birthdays')">
+    <a class="el"><i class="fa-solid fa-cake-candles"></i></a>
+    <p>Birthdays</p>
+  </div>
+  <div routerLinkActive="active" routerLink="/todo" (click)="addClass(3);sendTitle('ToDo')">
+    <a class="el"><i class="fa-solid fa-box"></i></a>
+    <p>ToDo</p>
+  </div>
+  <div routerLinkActive="active" routerLink="/calendar"  (click)="addClass(4);sendTitle('Calendar')">
+    <a class="el"><i class="fa-solid fa-calendar"></i></a>
+    <p>Calendar</p>
+  </div>
+</nav>

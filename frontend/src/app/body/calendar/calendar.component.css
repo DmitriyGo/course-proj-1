@@ -1,0 +1,95 @@
+.calendar-header{
+  display: flex;
+  width: 100%;
+  padding: 0 3rem 1rem 3rem;
+  font-size: 28px;
+  justify-content: space-between;
+}
+calendar-table{
+
+}
+.calendar-header div input{
+  margin: 0 0.5rem;
+  padding: 0.3rem 0;
+  width: 55px;
+  background-color: #282E33;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.calendar-header div input:hover {
+  background-color: white;
+  border: 1px solid #282E33;
+  color: #282E33;
+
+}
+
+.calendar-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  color: #18191D;
+}
+
+.calendar-table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  width: 14.2%;
+}
+
+.calendar-table td, .calendar-table th {
+  border: 1px solid #dee2e6;
+}
+
+.calendar-table td, .calendar-table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.calendar-day {
+  height: 12vh;
+  max-height: 12vh;
+  cursor: pointer;
+}
+
+
+.calendar-items-wrapper {
+  margin-left: -10px;
+  margin-right: -10px;
+  overflow-y: auto;
+  max-height: calc(100% - 20px);
+}
+
+.calendar-day.past-date {
+  background-color: #282E33;
+  color: #daeff1;
+}
+
+.calendar-day:hover {
+  background-color: rgb(248, 248, 248);
+  color: #282E33;
+}
+td{
+  background-color: #283154;
+  transition: 0.15s ease;
+  color: #daeff1;
+}
+
+.calendar-day.today{
+  background-color: #2b686e;
+  color: #daeff1;
+  transition: 0.2s ease;
+}
+.calendar-day.today:hover{
+  background-color: #2b886e;
+  color: #daeff1;
+}
+
+.event{
+  background-color: #DB3844;
+}
